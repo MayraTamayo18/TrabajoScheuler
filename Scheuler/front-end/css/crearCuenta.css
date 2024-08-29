@@ -1,0 +1,416 @@
+/*Ajustar el tamaño de la pagina*/
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(86, 58, 250, 0.9) 100%, rgba(86, 58, 250, 0.9) 0%), url("../img/Onda3.jpg");
+    background-size: cover;
+    position: relative;
+
+    font-family: "Poppins", sans-serif;
+}
+
+.wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.toggle-password {
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    right: 4px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/*Estilo para el contenedor principal*/
+.container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+/* Estilo para las columnas */
+.left-column {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.right-column {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+/*Estilo para el contenido*/
+.fauguet {
+  width: 50%;
+  height: 75%;
+   border-radius: 20px;
+    /* border: 1px solid #ddd;  esto interfiere con el is_valid form*/
+  background-color: #fff;
+    /* Fondo blanco */
+}
+
+/*Estilos para el formulario y sus elemntos*/
+form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    border-radius: 2px;
+    border-bottom: 2px;
+    padding: 20px;
+}
+
+.col {
+    margin-bottom: 2px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 5px;
+    /* Espacio inferior entre etiquetas y campos */
+}
+
+/* .form-control {
+    width: 100%;
+    /* Opcional: Ajusta el ancho de los campos 
+    padding: 8px;
+    /* Opcional: Ajusta el relleno de los campos */
+    /* border: 1px solid #ccc; esto impide el is_valid form*/
+    /* Opcional: Estilo de borde
+    border-radius: 5px;
+    /* Opcional: Borde redondeado 
+} */
+
+h1 {
+    text-align: center;
+    font-size: 3rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    /* O usan px o usan rem no mezlcados */
+}  
+.form-control {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #fff; /* Borde blanco por defecto */
+    border-radius: 10px;
+    background-color: #e5e4e4;
+}
+/* incompleto las validaciones */
+.error-message {
+    color: #dc3545;
+    font-size: 0.875em;
+    display: none;
+}
+
+.is-valid {
+    border-color: #28a745 !important; /* Verde para válido */
+}
+
+.is-invalid {
+    border-color: #dc3545 !important; /* Rojo para inválido */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    align-self: center;
+    max-width: 95%;
+    border: 1px solid #ffffff; /* Borde blanco por defecto */
+    border-radius: 10px;
+    background-color: #e5e4e4;
+}
+
+/* Asegurarse de que las clases de validación sobrescriban el borde */
+input[type="text"].is-valid,
+input[type="email"].is-valid,
+input[type="password"].is-valid {
+    border-color: #28a745 !important; /* Verde para válido */
+}
+
+input[type="text"].is-invalid,
+input[type="email"].is-invalid,
+input[type="password"].is-invalid {
+    border-color: #dc3545 !important; /* Rojo para inválido */
+}
+/* Cambio de color externo input */
+input:focus {
+    outline: none;
+    border-color: #563afae6;
+}
+
+/*Estilos para el boton -- Esto es afuera .boton es el padre .btn es el interior*/
+.boton {
+    padding-top: 28px;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; Innecesario, tiene propiedad de box*/
+}
+
+/* ⬇️ Esto no funciona */
+.boton [type="submit"] {
+    background-color: #563afae6;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    /* Añade estas propiedades para centrar el contenido del botón */
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    font-size: 18px;
+    /*tamaño de la letra del boton*/
+}
+
+/* Dentro del botón */
+.boton .btn {
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    flex: 1;
+    cursor: pointer;
+    width: 70%;
+    border-radius: 15px;
+    border: none;
+    padding: 8px;
+
+    background-color: rgba(86, 58, 250, 0.9);
+    color: #fff;
+}
+
+.btn:hover{
+    color: #d6d6d6;
+}
+
+/*Estilos para el enlace de registro*/
+.registro {
+    /* display: flex;
+    justify-content: center;
+    align-items: center; Innecesario, para eso está text-align*/
+
+
+    text-align: center;
+    font-size: small;
+}
+
+a {
+    /* text-align: center; */
+    text-decoration: none;
+    color: #23527c;
+    font-weight: 300;
+}
+/* SI YA ESTÁ EN EL CENTRO PARA QUE ALINEARLO NUEVAMENTE? */
+a:hover {
+    /* text-align: center; */
+    color: #aaaaaa;
+}
+
+/*Estilos del boton de Iniciar Sesion con Google*/
+.google-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.google-login button {
+    position: relative;
+    padding: 5px 8px;
+    border: none;
+    border-radius: 15px;
+    /* Añade estas propiedades para centrar el contenido del botón */
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+    border: 1px solid #a7a7a7;
+    background-color: #ffffff;
+    display: flex;
+    cursor: pointer;
+}
+
+.google-login button:hover{
+  background-color: #eeecec;
+  transition: 0.5s;
+}
+
+.google-login button img{
+   width: 30px;
+   height: auto;
+   margin-right: 10px;
+}
+
+.google-login button span{
+    flex: 1;
+    text-align: center;
+}
+
+/*Estilos para el aviso de descarga*/
+.aviso {
+    text-align: center;
+}
+
+.aviso img {
+    max-width: 150px;
+}
+
+.right-column{
+    flex: 1;
+    display: flex;
+    justify-content: center; /*centra horizontalmete la imagen*/
+    align-items: center; /*centra verticalmentela imagen*/
+}
+
+.site-logo {
+    max-width: 50%;
+    height: auto; /*se ajusta la altura de la imagen automaticamente*/
+}
+/* estilos para el loader */
+.loader {
+    display: none;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 6.250em;
+    height: 6.250em;
+    animation: rotate5123 2.4s linear infinite;
+  }
+  
+  .white {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    animation: flash 2.4s linear infinite;
+    opacity: 0;
+  }
+  
+  .dot {
+    position: absolute;
+    margin: auto;
+    width: 2.4em;
+    height: 2.4em;
+    border-radius: 100%;
+    transition: all 1s ease;
+  }
+  
+  .dot:nth-child(2) {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background: #5f14fe;
+    animation: dotsY 2.4s linear infinite;
+  }
+  
+  .dot:nth-child(3) {
+    left: 0;
+    right: 0;
+    top: 0;
+    background: #5f32ad;
+    animation: dotsX 2.4s linear infinite;
+  }
+  
+  .dot:nth-child(4) {
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background: #2d16bf;
+    animation: dotsY 2.4s linear infinite;
+  }
+  
+  .dot:nth-child(5) {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #33B5E5;
+    animation: dotsX 2.4s linear infinite;
+  }
+  
+  @keyframes rotate5123 {
+    0% {
+      transform: rotate( 0 );
+    }
+  
+    10% {
+      width: 6.250em;
+      height: 6.250em;
+    }
+  
+    66% {
+      width: 2.4em;
+      height: 2.4em;
+    }
+  
+    100% {
+      transform: rotate(360deg);
+      width: 6.250em;
+      height: 6.250em;
+    }
+  }
+  
+  @keyframes dotsY {
+    66% {
+      opacity: .1;
+      width: 2.4em;
+    }
+  
+    77% {
+      opacity: 1;
+      width: 0;
+    }
+  }
+  
+  @keyframes dotsX {
+    66% {
+      opacity: .1;
+      height: 2.4em;
+    }
+  
+    77% {
+      opacity: 1;
+      height: 0;
+    }
+  }
+  
+  @keyframes flash {
+    33% {
+      opacity: 0;
+      border-radius: 0%;
+    }
+  
+    55% {
+      opacity: .6;
+      border-radius: 100%;
+    }
+  
+    66% {
+      opacity: 0;
+    }
+  }
+/* fin loader   */
+/* crea mi cuenta  */
+@media (max-width: 768px) {
+  .container {
+      flex-direction:column-reverse;
+  }
+
+  .site-logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-width: 320px; /* Reduce el tamaño del logo en pantallas pequeñas */
+  }
+
+  .fauguet {
+      width: 100%;
+      max-width: 90%; /* Aumenta el tamaño del formulario en pantallas pequeñas */
+  }
+}
