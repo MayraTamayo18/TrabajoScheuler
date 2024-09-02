@@ -10,6 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+
+from decouple import config
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -40,7 +42,8 @@ INSTALLED_APPS = [
     'corsheaders', 
     'rest_framework', 
     'coreapi', 
-    'scheuler' 
+    'scheuler',
+    'rest_framework.authtoken' 
 
 ]
 
@@ -80,11 +83,17 @@ WSGI_APPLICATION = 'sistema.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+   'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'scheulerdb',
+        'USER': 'root',
+        #'PASSWORD': '123456',
+        'PASSWORD': '',# se debe cambiar esto de acuerdo a la DB que van a utilizar
+        'HOST': 'localhost',  # o la dirección IP de tu servidor MySQL
+        'PORT': '3306',       
     }
 }
+
 
 
 # Password validation
@@ -104,6 +113,7 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+AUTH_USER_MODEL = 'scheuler.UsuarioModifica'
 
 
 # Internationalization
@@ -136,3 +146,11 @@ CORS_ALLOWED_ORIGINS = [
 REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema'
 }
+
+# Configuración de email
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.googlemail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'tuvoozsoporte@gmail.com'
+EMAIL_HOST_PASSWORD = config('USER_MAIL_PASSWORD')
+EMAIL_USE_TLS = True
